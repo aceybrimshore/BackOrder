@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main, master, devel ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build and Validate
@@ -28,3 +31,10 @@ jobs:
 
       - name: Build Application
         run: npm run build
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'master' || github.ref_name == 'devel')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
