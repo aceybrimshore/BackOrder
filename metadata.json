@@ -1,0 +1,6 @@
+{
+  "name": "Backorder & Production Conflict Analyzer",
+  "description": "Parses back order CSV reports, highlights urgent items, and cross-references scheduled work orders to detect production timeline conflicts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
